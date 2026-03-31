@@ -1,0 +1,11 @@
+# 备份文件
+*.bak
+# 日志
+Logs/
+# 编译输出
+Release/
+# 编译中间文件
+GenP/*_stripped.au3
+GenP/*.exe
+# 原版备份
+原版/
