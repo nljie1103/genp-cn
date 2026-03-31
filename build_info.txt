@@ -1,5 +1,0 @@
-﻿自动构建说明：以管理员身份运行 'run_build.bat'
-
-- 自动下载 AutoIt 编译器和 SciTE 编辑器
-- 自动补丁 wintrust.dll（修改签名验证）
-- 编译 GenP 为可执行文件(.exe)

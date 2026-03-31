@@ -34,7 +34,6 @@ genp-3.8.0-src/
 ├── ARCHITECTURE.md              ← 详细架构说明、安全分析与学习教程
 │
 │  ===== 构建系统 =====
-├── build_info.txt               ← 构建说明（简要提示如何编译）
 ├── build.ps1                    ← PowerShell 自动化构建脚本（已中文注释）
 │                                   负责下载 AutoIt/SciTE、解压 UPX、补丁 DLL、编译
 ├── run_build.bat                ← 一键构建启动器（管理员权限检查 + chcp 65001）
@@ -106,7 +105,6 @@ genp-3.8.0-src/
 | `LICENSE` | 法律文件 | MIT 开源许可证 |
 | `README.md` | 文档 | 项目总览、结构说明、学习指南 |
 | `ARCHITECTURE.md` | 文档 | 架构详解、代码流程、模块说明、安全分析 |
-| `build_info.txt` | 文档 | 简要构建提示 |
 | `build.ps1` | 构建脚本 | 全自动构建流程（下载→解压→补丁→编译→输出） |
 | `run_build.bat` | 构建入口 | 管理员权限检查 + 设置 UTF-8 + 调用 build.ps1 |
 | `translate_batch.ps1` | 翻译工具 | 90 条英→中字符串替换规则，支持增量翻译 |
