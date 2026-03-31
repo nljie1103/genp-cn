@@ -1,0 +1,372 @@
+﻿--- Pos 60968, Len 12 ---
+ite(1, $MyFileToDelete)
+		LogWrite(1, "鏈?壘鍒板?浠芥枃浠躲€?)
+	EndIf
+EndFunc   ;==>RestoreFile
+
+
+--- Pos 77234, Len 9 ---
+sClose($iStopPID)
+			LogWrite(1, "璀﹀憡: 鍋滄?鏈嶅姟澶辫触 " & $sService & " - timed out after " &
+
+--- Pos 77488, Len 9 ---
+& $sService)
+			Else
+				LogWrite(1, "鍋滄?鏈嶅姟澶辫触 " & $sService & " (possible error)")
+	
+
+--- Pos 94201, Len 4 ---
+& ": " & ($enabled = "True" ? "宸插惎鐢? : "宸茬?鐢?) & @CRLF
+			EndIf
+		EndIf
+	Next
+	M
+
+--- Pos 95827, Len 14 ---
+te("检测到第三方防火墙。无法移除规则。")
+		LogWrite(1, "妫€娴嬪埌绗?笁鏂归槻鐏??" & ($g_sThirdPartyFirewall <> "" ? " ("
+
+--- Pos 95922, Len 10 ---
+& $g_sThirdPartyFirewall & ")" : "") & "銆傛?鍔熻兘浠呮敮鎸?Windows 闃茬伀澧欍€?)
+		LogWrite(1, "防火墙规则移
+
+--- Pos 97012, Len 4 ---
+
+	LogWrite(1, "正在移除 " & $iRuleCount & " 鏉¤?鍒?")
+	For $i = 1 To $aRules[0]
+		If Str
+
+--- Pos 98495, Len 14 ---
+ "- " & $app)
+			Next
+			LogWrite(1, "妫€娴嬪埌绗?笁鏂归槻鐏??" & ($g_sThirdPartyFirewall <> "" ? " ("
+
+--- Pos 102659, Len 19 ---
+epth + 1]
+		Else
+			LogWrite(1, "璀﹀憡: 閰嶇疆浣跨敤浜嗙煭璺?緞锛屾湭鐭ュ簲鐢? " & $fileNoBak)
+		EndIf
+
+		If Not $
+
+--- Pos 108092, Len 14 ---
+te("检测到第三方防火墙。无法修改规则。")
+		LogWrite(1, "妫€娴嬪埌绗?笁鏂归槻鐏??" & ($g_sThirdPartyFirewall <> "" ? " ("
+
+--- Pos 108187, Len 10 ---
+& $g_sThirdPartyFirewall & ")" : "") & "銆傛?鍔熻兘浠呮敮鎸?Windows 闃茬伀澧欍€?)
+		LogWrite(1, "启用规则流程
+
+--- Pos 109268, Len 4 ---
+
+	LogWrite(1, "正在启用 " & $iRuleCount & " 鏉¤?鍒?")
+	For $i = 1 To $aRules[0]
+		If Str
+
+--- Pos 110504, Len 14 ---
+te("检测到第三方防火墙。无法修改规则。")
+		LogWrite(1, "妫€娴嬪埌绗?笁鏂归槻鐏??" & ($g_sThirdPartyFirewall <> "" ? " ("
+
+--- Pos 110599, Len 10 ---
+& $g_sThirdPartyFirewall & ")" : "") & "銆傛?鍔熻兘浠呮敮鎸?Windows 闃茬伀澧欍€?)
+		LogWrite(1, "禁用规则流程
+
+--- Pos 111680, Len 4 ---
+
+	LogWrite(1, "正在禁用 " & $iRuleCount & " 鏉¤?鍒?")
+	For $i = 1 To $aRules[0]
+		If Str
+
+--- Pos 113483, Len 6 ---
+$hTab, 3)
+		MemoWrite("璀﹀憡: config.ini 涓?湭鎵惧埌 [RuntimeInstallers] 娈垫垨璇ユ?涓虹┖")
+		LogW
+
+--- Pos 113510, Len 9 ---
+: config.ini 涓?湭鎵惧埌 [RuntimeInstallers] 娈垫垨璇ユ?涓虹┖")
+		LogWrite(1, "璀﹀憡: config.ini 涓?湭鎵惧
+
+--- Pos 113554, Len 6 ---
+ユ?涓虹┖")
+		LogWrite(1, "璀﹀憡: config.ini 涓?湭鎵惧埌 [RuntimeInstallers] 娈垫垨璇ユ?涓虹┖")
+		Loca
+
+--- Pos 113581, Len 9 ---
+: config.ini 涓?湭鎵惧埌 [RuntimeInstallers] 娈垫垨璇ユ?涓虹┖")
+		Local $empty[0]
+		ToggleLog(1)
+	
+
+--- Pos 116231, Len 15 ---
+timeInstaller.dll 文件。")
+		LogWrite(1, "鏈?€夋嫨瑕佽В鍖呯殑鏂囦欢銆?)
+		ToggleLog(1)
+		Return
+	EndIf
+
+
+
+--- Pos 116491, Len 3 ---
+ab_SetCurFocus($hTab, 3)
+			MemoWrite("閿欒?: 瑙ｅ帇 upx.exe 澶辫触: " & $upxPath)
+			Log
+
+--- Pos 116544, Len 3 ---
+exe 澶辫触: " & $upxPath)
+			LogWrite(1, "閿欒?: 瑙ｅ帇 upx.exe 澶辫触銆?)
+			ToggleLog(1)
+	
+
+--- Pos 117240, Len 9 ---
+PXHeader($file) Then
+			MemoWrite("UPX 澶撮儴淇?ˉ澶辫触: " & $file)
+			LogWrite(1, "UPX 澶撮儴淇?ˉ
+
+--- Pos 117283, Len 9 ---
+淇?ˉ澶辫触: " & $file)
+			LogWrite(1, "UPX 澶撮儴淇?ˉ澶辫触: " & $file)
+			ContinueLoop
+		EndIf
+
+
+--- Pos 118862, Len 3 ---
+)
+	If $hFile = -1 Then
+		LogWrite(1, "閿欒?: 鏃犳硶鎵撳紑鏂囦欢杩涜? UPX 妫€鏌? " & $sFilePath)
+
+--- Pos 118867, Len 12 ---
+f $hFile = -1 Then
+		LogWrite(1, "閿欒?: 鏃犳硶鎵撳紑鏂囦欢杩涜? UPX 妫€鏌? " & $sFilePath)
+		Return Fals
+
+--- Pos 119018, Len 3 ---
+hFile)
+	If @error Then
+		LogWrite(1, "閿欒?: 鏃犳硶璇诲彇鏂囦欢杩涜? UPX 妫€鏌? " & $sFilePath)
+
+--- Pos 119023, Len 12 ---
+)
+	If @error Then
+		LogWrite(1, "閿欒?: 鏃犳硶璇诲彇鏂囦欢杩涜? UPX 妫€鏌? " & $sFilePath)
+		Return Fals
+
+--- Pos 119876, Len 3 ---
+th, $sBackupPath, 1) Then
+		MemoWrite("閿欒?: 鍒涘缓澶囦唤澶辫触: " & $sFilePath)
+		LogWrite
+
+--- Pos 119924, Len 3 ---
+澶囦唤澶辫触: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鍒涘缓澶囦唤澶辫触: " & $sFilePath)
+		Return F
+
+--- Pos 120060, Len 3 ---
+16)
+	If $hFile = -1 Then
+		MemoWrite("閿欒?: 鏃犳硶鎵撳紑鏂囦欢杩涜?淇?ˉ: " & $sFilePath)
+		Lo
+
+--- Pos 120065, Len 15 ---
+	If $hFile = -1 Then
+		MemoWrite("閿欒?: 鏃犳硶鎵撳紑鏂囦欢杩涜?淇?ˉ: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鏃
+
+--- Pos 120114, Len 3 ---
+杩涜?淇?ˉ: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鏃犳硶鎵撳紑鏂囦欢杩涜?淇?ˉ: " & $sFilePath)
+		Re
+
+--- Pos 120119, Len 15 ---
+ˉ: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鏃犳硶鎵撳紑鏂囦欢杩涜?淇?ˉ: " & $sFilePath)
+		Return False
+	EndI
+
+--- Pos 120261, Len 3 ---
+($hFile)
+	If @error Then
+		MemoWrite("閿欒?: 鏃犳硶璇诲彇鏂囦欢杩涜?淇?ˉ: " & $sFilePath)
+		Lo
+
+--- Pos 120266, Len 15 ---
+le)
+	If @error Then
+		MemoWrite("閿欒?: 鏃犳硶璇诲彇鏂囦欢杩涜?淇?ˉ: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鏃
+
+--- Pos 120315, Len 3 ---
+杩涜?淇?ˉ: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鏃犳硶璇诲彇鏂囦欢杩涜?淇?ˉ: " & $sFilePath)
+		Re
+
+--- Pos 120320, Len 15 ---
+ˉ: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鏃犳硶璇诲彇鏂囦欢杩涜?淇?ˉ: " & $sFilePath)
+		Return False
+	EndI
+
+--- Pos 121101, Len 3 ---
+	If $hFileWrite = -1 Then
+		MemoWrite("閿欒?: 鏃犳硶鎵撳紑鏂囦欢杩涜?鍐欏叆: " & $sFilePath)
+		Lo
+
+--- Pos 121106, Len 15 ---
+hFileWrite = -1 Then
+		MemoWrite("閿欒?: 鏃犳硶鎵撳紑鏂囦欢杩涜?鍐欏叆: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鏃
+
+--- Pos 121155, Len 3 ---
+杩涜?鍐欏叆: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鏃犳硶鎵撳紑鏂囦欢杩涜?鍐欏叆: " & $sFilePath)
+		Fi
+
+--- Pos 121160, Len 15 ---
+叆: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鏃犳硶鎵撳紑鏂囦欢杩涜?鍐欏叆: " & $sFilePath)
+		FileCopy($sBackupPa
+
+--- Pos 121383, Len 3 ---
+leWrite)
+	If @error Then
+		MemoWrite("閿欒?: 鍐欏叆淇?ˉ鏁版嵁澶辫触: " & $sFilePath)
+		LogWr
+
+--- Pos 121388, Len 12 ---
+te)
+	If @error Then
+		MemoWrite("閿欒?: 鍐欏叆淇?ˉ鏁版嵁澶辫触: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鍐
+
+--- Pos 121434, Len 3 ---
+鏁版嵁澶辫触: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鍐欏叆淇?ˉ鏁版嵁澶辫触: " & $sFilePath)
+		FileC
+
+--- Pos 121439, Len 12 ---
+触: " & $sFilePath)
+		LogWrite(1, "閿欒?: 鍐欏叆淇?ˉ鏁版嵁澶辫触: " & $sFilePath)
+		FileCopy($sBackupPa
+
+--- Pos 123529, Len 19 ---
+epth + 1]
+		Else
+			LogWrite(1, "璀﹀憡: 閰嶇疆浣跨敤浜嗙煭璺?緞锛屾湭鐭ュ簲鐢? " & $fileClean)
+		EndIf
+		If Not $ap
+
+--- Pos 127500, Len 4 ---
+LogWrite(1, "娉ㄥ唽琛ㄩ」 " & $sValueName & " 宸茶?涓?" & $iExpectedValue & ".")
+		Return Tr
+
+--- Pos 127712, Len 10 ---
+or WinTrust override.")
+		LogWrite(1, "宸茶?缃?敞鍐岃〃椤?" & $sValueName & " = " & $iExpectedVal
+
+--- Pos 127829, Len 3 ---
+p()
+		Return True
+	Else
+		MemoWrite("閿欒?: 鍚?敤娉ㄥ唽琛ㄩ」澶辫触 " & $sValueName & ".")
+	
+
+--- Pos 127834, Len 12 ---
+		Return True
+	Else
+		MemoWrite("閿欒?: 鍚?敤娉ㄥ唽琛ㄩ」澶辫触 " & $sValueName & ".")
+		LogWrite(1, "
+
+--- Pos 127886, Len 3 ---
+ " & $sValueName & ".")
+		LogWrite(1, "閿欒?: 璁剧疆娉ㄥ唽琛ㄩ」澶辫触 " & $sValueName & " (Erro
+
+--- Pos 128633, Len 10 ---
+me)
+	If @error <> 0 Then
+		MemoWrite("鏈?壘鍒版敞鍐岃〃椤?" & $sValueName & " 鍙?Щ闄ゃ€?)
+		LogWrit
+
+--- Pos 128664, Len 6 ---
+moWrite("鏈?壘鍒版敞鍐岃〃椤?" & $sValueName & " 鍙?Щ闄ゃ€?)
+		LogWrite(1, "鏈?壘鍒版敞鍐岃〃椤?" & $sValu
+
+--- Pos 128689, Len 10 ---
+sValueName & " 鍙?Щ闄ゃ€?)
+		LogWrite(1, "鏈?壘鍒版敞鍐岃〃椤?" & $sValueName & " found.")
+		Return 
+
+--- Pos 128839, Len 13 ---
+		MemoWrite("娉ㄥ唽琛ㄩ」 " & $sValueName & " 鏈?惎鐢?紝鏃犻渶鎿嶄綔銆?)
+		LogWrite(1, "娉ㄥ唽琛ㄩ」 " & $sValueNam
+
+--- Pos 128898, Len 4 ---
+LogWrite(1, "娉ㄥ唽琛ㄩ」 " & $sValueName & " 鏈??涓?" & $iExpectedValue & ".")
+		Return Tr
+
+--- Pos 129009, Len 10 ---
+($sKey, $sValueName) Then
+		MemoWrite("宸茬?鐢ㄦ敞鍐岃〃椤?" & $sValueName & ".")
+		LogWrite(1, "
+
+--- Pos 129150, Len 3 ---
+p()
+		Return True
+	Else
+		MemoWrite("閿欒?: 绂佺敤娉ㄥ唽琛ㄩ」澶辫触 " & $sValueName & ".")
+	
+
+--- Pos 129207, Len 3 ---
+ " & $sValueName & ".")
+		LogWrite(1, "閿欒?: 绉婚櫎娉ㄥ唽琛ㄩ」澶辫触 " & $sValueName & " (Erro
+
+--- Pos 132744, Len 3 ---
+sts($dllSourcePath) Then
+			MemoWrite("閿欒?: 瑙ｅ帇 wintrust.dll 澶辫触: " & $dllSourcePa
+
+--- Pos 132808, Len 3 ---
+触: " & $dllSourcePath)
+			LogWrite(1, "閿欒?: 瑙ｅ帇 wintrust.dll 澶辫触銆?)
+			Return
+		
+
+--- Pos 132929, Len 3 ---
+ourcePath) <> 382712 Then
+		MemoWrite("閿欒?: wintrust.dll 澶у皬涓嶅尮閰嶏紙搴斾负 382,712 瀛楄妭锛
+
+--- Pos 132993, Len 3 ---
+閰嶏紙搴斾负 382,712 瀛楄妭锛夈€?)
+		LogWrite(1, "閿欒?: wintrust.dll 澶у皬涓嶅尮閰嶏紙搴斾负 382,712 瀛楄妭锛
+
+--- Pos 133789, Len 9 ---
+irCreate($localDir) Then
+			MemoWrite("鍒涘缓鐩?綍澶辫触: " & $localDir)
+			LogWrite(1, "鍒涘缓鐩?綍
+
+--- Pos 133832, Len 9 ---
+鐩?綍澶辫触: " & $localDir)
+			LogWrite(1, "鍒涘缓鐩?綍澶辫触: " & $localDir)
+			ContinueLoop
+		End
+
+--- Pos 136598, Len 4 ---
+ileExists($dllPath) Then
+			MemoWrite("鏈?壘鍒?wintrust.dll: " & $dllPath & " - 跳过。")
+
+--- Pos 136659, Len 4 ---
+& $dllPath & " - 跳过。")
+			LogWrite(1, "鏈?壘鍒?wintrust.dll: " & $dllPath & " - 跳过。")
+
+--- Pos 137747, Len 16 ---
+Tab_SetCurFocus($hTab, 3)
+		MemoWrite("鏈?壘鍒板彲澶勭悊鐨勫簲鐢ㄧ▼搴? " & StringLower($operation) & " at: " 
+
+--- Pos 137833, Len 16 ---
+& " at: " & $MyDefPath)
+		LogWrite(1, "鏈?壘鍒板彲澶勭悊鐨勫簲鐢ㄧ▼搴? " & StringLower($operation) & " at: " 
+
+--- Pos 139064, Len 19 ---
+epth + 1]
+		Else
+			LogWrite(1, "璀﹀憡: 閰嶇疆浣跨敤浜嗙煭璺?緞锛屾湭鐭ュ簲鐢? " & $fileClean)
+		EndIf
+		If Not $ap
+

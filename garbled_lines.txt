@@ -1,0 +1,162 @@
+﻿LINE 1557
+		LogWrite(1, "鏈壘鍒板浠芥枃浠躲€?)
+---
+LINE 1989
+			LogWrite(1, "璀﹀憡: 鍋滄鏈嶅姟澶辫触 " & $sService & " - timed out after " & $iTimeout & "ms")
+---
+LINE 1995
+				LogWrite(1, "鍋滄鏈嶅姟澶辫触 " & $sService & " (possible error)")
+---
+LINE 2468
+				$sProfileSummary &= $profileName & ": " & ($enabled = "True" ? "宸插惎鐢? : "宸茬鐢?) & @CRLF
+---
+LINE 2513
+		LogWrite(1, "妫€娴嬪埌绗笁鏂归槻鐏" & ($g_sThirdPartyFirewall <> "" ? " (" & $g_sThirdPartyFirewall & ")" : "") & "銆傛鍔熻兘浠呮敮鎸?Windows 闃茬伀澧欍€?)
+---
+LINE 2546
+	LogWrite(1, "正在移除 " & $iRuleCount & " 鏉¤鍒?")
+---
+LINE 2592
+			LogWrite(1, "妫€娴嬪埌绗笁鏂归槻鐏" & ($g_sThirdPartyFirewall <> "" ? " (" & $g_sThirdPartyFirewall & ")" : "") & "。请手动将这些路径添加到您的防火墙中。")
+---
+LINE 2722
+			LogWrite(1, "璀﹀憡: 閰嶇疆浣跨敤浜嗙煭璺緞锛屾湭鐭ュ簲鐢? " & $fileNoBak)
+---
+LINE 2874
+		LogWrite(1, "妫€娴嬪埌绗笁鏂归槻鐏" & ($g_sThirdPartyFirewall <> "" ? " (" & $g_sThirdPartyFirewall & ")" : "") & "銆傛鍔熻兘浠呮敮鎸?Windows 闃茬伀澧欍€?)
+---
+LINE 2906
+	LogWrite(1, "正在启用 " & $iRuleCount & " 鏉¤鍒?")
+---
+LINE 2943
+		LogWrite(1, "妫€娴嬪埌绗笁鏂归槻鐏" & ($g_sThirdPartyFirewall <> "" ? " (" & $g_sThirdPartyFirewall & ")" : "") & "銆傛鍔熻兘浠呮敮鎸?Windows 闃茬伀澧欍€?)
+---
+LINE 2975
+	LogWrite(1, "正在禁用 " & $iRuleCount & " 鏉¤鍒?")
+---
+LINE 3024
+		MemoWrite("璀﹀憡: config.ini 涓湭鎵惧埌 [RuntimeInstallers] 娈垫垨璇ユ涓虹┖")
+---
+LINE 3025
+		LogWrite(1, "璀﹀憡: config.ini 涓湭鎵惧埌 [RuntimeInstallers] 娈垫垨璇ユ涓虹┖")
+---
+LINE 3105
+		LogWrite(1, "鏈€夋嫨瑕佽В鍖呯殑鏂囦欢銆?)
+---
+LINE 3115
+			MemoWrite("閿欒: 瑙ｅ帇 upx.exe 澶辫触: " & $upxPath)
+---
+LINE 3116
+			LogWrite(1, "閿欒: 瑙ｅ帇 upx.exe 澶辫触銆?)
+---
+LINE 3143
+			MemoWrite("UPX 澶撮儴淇ˉ澶辫触: " & $file)
+---
+LINE 3144
+			LogWrite(1, "UPX 澶撮儴淇ˉ澶辫触: " & $file)
+---
+LINE 3197
+		LogWrite(1, "閿欒: 鏃犳硶鎵撳紑鏂囦欢杩涜 UPX 妫€鏌? " & $sFilePath)
+---
+LINE 3204
+		LogWrite(1, "閿欒: 鏃犳硶璇诲彇鏂囦欢杩涜 UPX 妫€鏌? " & $sFilePath)
+---
+LINE 3231
+		MemoWrite("閿欒: 鍒涘缓澶囦唤澶辫触: " & $sFilePath)
+---
+LINE 3232
+		LogWrite(1, "閿欒: 鍒涘缓澶囦唤澶辫触: " & $sFilePath)
+---
+LINE 3238
+		MemoWrite("閿欒: 鏃犳硶鎵撳紑鏂囦欢杩涜淇ˉ: " & $sFilePath)
+---
+LINE 3239
+		LogWrite(1, "閿欒: 鏃犳硶鎵撳紑鏂囦欢杩涜淇ˉ: " & $sFilePath)
+---
+LINE 3245
+		MemoWrite("閿欒: 鏃犳硶璇诲彇鏂囦欢杩涜淇ˉ: " & $sFilePath)
+---
+LINE 3246
+		LogWrite(1, "閿欒: 鏃犳硶璇诲彇鏂囦欢杩涜淇ˉ: " & $sFilePath)
+---
+LINE 3278
+		MemoWrite("閿欒: 鏃犳硶鎵撳紑鏂囦欢杩涜鍐欏叆: " & $sFilePath)
+---
+LINE 3279
+		LogWrite(1, "閿欒: 鏃犳硶鎵撳紑鏂囦欢杩涜鍐欏叆: " & $sFilePath)
+---
+LINE 3287
+		MemoWrite("閿欒: 鍐欏叆淇ˉ鏁版嵁澶辫触: " & $sFilePath)
+---
+LINE 3288
+		LogWrite(1, "閿欒: 鍐欏叆淇ˉ鏁版嵁澶辫触: " & $sFilePath)
+---
+LINE 3343
+			LogWrite(1, "璀﹀憡: 閰嶇疆浣跨敤浜嗙煭璺緞锛屾湭鐭ュ簲鐢? " & $fileClean)
+---
+LINE 3450
+		LogWrite(1, "娉ㄥ唽琛ㄩ」 " & $sValueName & " 宸茶涓?" & $iExpectedValue & ".")
+---
+LINE 3456
+		LogWrite(1, "宸茶缃敞鍐岃〃椤?" & $sValueName & " = " & $iExpectedValue & ".")
+---
+LINE 3460
+		MemoWrite("閿欒: 鍚敤娉ㄥ唽琛ㄩ」澶辫触 " & $sValueName & ".")
+---
+LINE 3461
+		LogWrite(1, "閿欒: 璁剧疆娉ㄥ唽琛ㄩ」澶辫触 " & $sValueName & " (Error: " & @error & ").")
+---
+LINE 3484
+		MemoWrite("鏈壘鍒版敞鍐岃〃椤?" & $sValueName & " 鍙Щ闄ゃ€?)
+---
+LINE 3485
+		LogWrite(1, "鏈壘鍒版敞鍐岃〃椤?" & $sValueName & " found.")
+---
+LINE 3490
+		MemoWrite("娉ㄥ唽琛ㄩ」 " & $sValueName & " 鏈惎鐢紝鏃犻渶鎿嶄綔銆?)
+---
+LINE 3491
+		LogWrite(1, "娉ㄥ唽琛ㄩ」 " & $sValueName & " 鏈涓?" & $iExpectedValue & ".")
+---
+LINE 3496
+		MemoWrite("宸茬鐢ㄦ敞鍐岃〃椤?" & $sValueName & ".")
+---
+LINE 3501
+		MemoWrite("閿欒: 绂佺敤娉ㄥ唽琛ㄩ」澶辫触 " & $sValueName & ".")
+---
+LINE 3502
+		LogWrite(1, "閿欒: 绉婚櫎娉ㄥ唽琛ㄩ」澶辫触 " & $sValueName & " (Error: " & @error & ").")
+---
+LINE 3614
+			MemoWrite("閿欒: 瑙ｅ帇 wintrust.dll 澶辫触: " & $dllSourcePath)
+---
+LINE 3615
+			LogWrite(1, "閿欒: 瑙ｅ帇 wintrust.dll 澶辫触銆?)
+---
+LINE 3621
+		MemoWrite("閿欒: wintrust.dll 澶у皬涓嶅尮閰嶏紙搴斾负 382,712 瀛楄妭锛夈€?)
+---
+LINE 3622
+		LogWrite(1, "閿欒: wintrust.dll 澶у皬涓嶅尮閰嶏紙搴斾负 382,712 瀛楄妭锛夈€?)
+---
+LINE 3647
+			MemoWrite("鍒涘缓鐩綍澶辫触: " & $localDir)
+---
+LINE 3648
+			LogWrite(1, "鍒涘缓鐩綍澶辫触: " & $localDir)
+---
+LINE 3738
+			MemoWrite("鏈壘鍒?wintrust.dll: " & $dllPath & " - 跳过。")
+---
+LINE 3739
+			LogWrite(1, "鏈壘鍒?wintrust.dll: " & $dllPath & " - 跳过。")
+---
+LINE 3771
+		MemoWrite("鏈壘鍒板彲澶勭悊鐨勫簲鐢ㄧ▼搴? " & StringLower($operation) & " at: " & $MyDefPath)
+---
+LINE 3772
+		LogWrite(1, "鏈壘鍒板彲澶勭悊鐨勫簲鐢ㄧ▼搴? " & StringLower($operation) & " at: " & $MyDefPath)
+---
+LINE 3801
+			LogWrite(1, "璀﹀憡: 閰嶇疆浣跨敤浜嗙煭璺緞锛屾湭鐭ュ簲鐢? " & $fileClean)
+---
