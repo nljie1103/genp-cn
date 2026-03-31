@@ -116,7 +116,7 @@ Global $ProgressFileCountScale, $FileSearchedCount  ; 进度比例系数、已�
 ; --- 选项设置 ---
 Global $bFindACC = IniRead($sINIPath, "Options", "FindACC", "1")           ; 是否始终扫描ACC（Adobe Creative Cloud）
 Global $bEnableMD5 = IniRead($sINIPath, "Options", "EnableMD5", "1")       ; 是否启用MD5校验
-Global $bOnlyAFolders = IniRead($sINIPath, "Options", "OnlyDefaultFolders", "1")  ; 是否只扫描默认文件夹
+Global $bOnlyAFolders = IniRead($sINIPath, "Options", "OnlyDefaultFolders", "1")  ; 是否只扫描名称含Adobe/Acrobat的文件夹
 
 ; --- 防火墙相关 ---
 Global $g_sThirdPartyFirewall = ""     ; 第三方防火墙名称
@@ -828,7 +828,7 @@ Func MainGui()
 	EndIf
 	GUICtrlSetResizing(-1, $GUI_DOCKAUTO)
 
-	$idOnlyAFolders = GUICtrlCreateCheckbox("仅在默认命名的文件夹中扫描", 10, 130, 300, 25, BitOR($BS_AUTOCHECKBOX, $BS_LEFT))
+	$idOnlyAFolders = GUICtrlCreateCheckbox("仅扫描名称含 Adobe/Acrobat 的文件夹", 10, 130, 300, 25, BitOR($BS_AUTOCHECKBOX, $BS_LEFT))
 	If $bOnlyAFolders = 1 Then
 		GUICtrlSetState($idOnlyAFolders, $GUI_CHECKED)
 	Else
