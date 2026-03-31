@@ -44,7 +44,7 @@ AutoItSetOption("GUICloseOnESC", 0)
 
 Global $g_Version = "3.8.0 - CGP"
 Global $g_AppWndTitle = "GenP v" & $g_Version
-Global $g_AppVersion = "CGP Community Edition" & @CRLF & "Originally created by uncia"
+Global $g_AppVersion = "CGP Community Edition" & @CRLF & "Originally created by uncia" & @CRLF & "汉化: Jay Leon"
 
 If _Singleton($g_AppWndTitle, 1) = 0 Then
 	Exit
@@ -64,6 +64,7 @@ Global $sRemoveAGSText, $idLabelRemoveAGS, $sCleanFirewallText, $idLabelCleanFir
 Global $sRuntimeInstallerText, $idLabelRuntimeInstaller, $idBtnToggleRuntimeInstaller, $sWinTrustText, $idLabelWinTrust, $idBtnToggleWinTrust, $idBtnDevOverride
 Global $idBtnAGSInfo, $idBtnFirewallInfo, $idBtnHostsInfo, $idBtnRuntimeInfo, $idBtnWintrustInfo
 Global $g_idHyperlinkMain, $g_idHyperlinkOptions, $g_idHyperlinkPopup, $g_idHyperlinkLog
+Global $g_idHyperlinkGitHub, $g_idHyperlinkGitHubOpt, $g_idHyperlinkGitHubPop, $g_idHyperlinkGitHubLog
 
 Global $sINIPath = @ScriptDir & "\config.ini"
 If Not FileExists($sINIPath) Then
@@ -169,7 +170,7 @@ While 1
 		Case $idMsg = $idButtonStop
 			$ListViewSelectFlag = 0   ; Set Flag to Deselected State
 			FillListViewWithInfo()
-			MemoWrite(@CRLF & "Path" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "Waiting for user action.")
+			MemoWrite(@CRLF & "路径" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "等待用户操作")
 			GUICtrlSetState($idButtonStop, $GUI_HIDE)
 			GUICtrlSetState($idButtonSearch, $GUI_SHOW)
 			GUICtrlSetState($idButtonSearch, 64)
@@ -434,7 +435,7 @@ While 1
 			_GUICtrlListView_InsertGroup($idListview, -1, 1, "", 1)    ; Group 1
 			_GUICtrlListView_SetGroupInfo($idListview, 1, "Info", 1, $LVGS_COLLAPSIBLE)
 
-			MemoWrite(@CRLF & "Path" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "waiting for user action")
+			MemoWrite(@CRLF & "路径" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "等待用户操作")
 			GUICtrlSetState($idListview, 64)
 			GUICtrlSetState($idButtonSearch, 64)
 			GUICtrlSetState($idButtonCustomFolder, 64)
@@ -473,7 +474,7 @@ While 1
 			GUICtrlSetState($hLogTab, $GUI_SHOW)
 
 		Case $idMsg = $idBtnRestore
-			GUICtrlSetData($idLog, "Activity Log" & @CRLF & "- - - - - - - - - - -" & @CRLF & @CRLF & "GenP Version: " & $g_Version & "" & @CRLF & "Config Version: " & $ConfigVerVar & "" & @CRLF)
+			GUICtrlSetData($idLog, "活动日志" & @CRLF & "- - - - - - - - - - -" & @CRLF & @CRLF & "GenP 版本: " & $g_Version & "" & @CRLF & "配置版本: " & $ConfigVerVar & "" & @CRLF)
 			ToggleLog(0)
 			GUICtrlSetState($idListview, 128)
 			GUICtrlSetState($idBtnDeselectAll, 128)
@@ -536,7 +537,7 @@ While 1
 			_GUICtrlListView_InsertGroup($idListview, -1, 1, "", 1)    ; Group 1
 			_GUICtrlListView_SetGroupInfo($idListview, 1, "Info", 1, $LVGS_COLLAPSIBLE)
 
-			MemoWrite(@CRLF & "Path" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "waiting for user action")
+			MemoWrite(@CRLF & "路径" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "等待用户操作")
 			GUICtrlSetState($idListview, 64)
 			GUICtrlSetState($idButtonCustomFolder, 64)
 			GUICtrlSetState($idBtnRestore, 128)
@@ -684,18 +685,18 @@ Func MainGui()
 	FillListViewWithInfo()
 
 	$idButtonCustomFolder = GUICtrlCreateButton("路径", 10, 430, 80, 30)
-	GUICtrlSetTip(-1, "设置自定义搜索路径")
+	GUICtrlSetTip(-1, "设置自定义扫描路径")
 	GUICtrlSetImage(-1, "imageres.dll", -4, 0)
 	GUICtrlSetResizing(-1, $GUI_DOCKAUTO)
 
-	$idButtonSearch = GUICtrlCreateButton("搜索", 134, 430, 80, 30)
-	GUICtrlSetTip(-1, "搜索已安装的应用")
+	$idButtonSearch = GUICtrlCreateButton("扫描", 134, 430, 80, 30)
+	GUICtrlSetTip(-1, "扫描已安装的应用")
 	GUICtrlSetImage(-1, "imageres.dll", -8, 0)
 	GUICtrlSetResizing(-1, $GUI_DOCKAUTO)
 
 	$idButtonStop = GUICtrlCreateButton("停止", 134, 430, 80, 30)
 	GUICtrlSetState(-1, $GUI_HIDE)
-	GUICtrlSetTip(-1, "停止搜索")
+	GUICtrlSetTip(-1, "停止扫描")
 	GUICtrlSetImage(-1, "imageres.dll", -8, 0)
 	GUICtrlSetResizing(-1, $GUI_DOCKAUTO)
 
@@ -720,17 +721,23 @@ Func MainGui()
 	$idProgressBar = GUICtrlCreateProgress(10, 397, 575, 25, $PBS_SMOOTHREVERSE)
 	GUICtrlSetResizing(-1, $GUI_DOCKVCENTER)
 
-	$g_idHyperlinkMain = GUICtrlCreateLabel("gen.paramore.su", (595 - 160) / 2, 483, 160, 24, BitOR($SS_CENTER, $SS_NOTIFY))
+	$g_idHyperlinkMain = GUICtrlCreateLabel("gen.paramore.su", 10, 483, 160, 24, BitOR($SS_LEFT, $SS_NOTIFY))
 	GUICtrlSetFont($g_idHyperlinkMain, 9, 400, 0, "Segoe UI")
 	GUICtrlSetColor($g_idHyperlinkMain, 0x000000)
 	GUICtrlSetBkColor($g_idHyperlinkMain, $GUI_BKCOLOR_TRANSPARENT)
 	GUICtrlSetCursor($g_idHyperlinkMain, 0)
 
+	$g_idHyperlinkGitHub = GUICtrlCreateLabel("github.com/nljie1103/genp-cn", 595 - 260, 483, 260, 24, BitOR($SS_RIGHT, $SS_NOTIFY))
+	GUICtrlSetFont($g_idHyperlinkGitHub, 9, 400, 0, "Segoe UI")
+	GUICtrlSetColor($g_idHyperlinkGitHub, 0x000000)
+	GUICtrlSetBkColor($g_idHyperlinkGitHub, $GUI_BKCOLOR_TRANSPARENT)
+	GUICtrlSetCursor($g_idHyperlinkGitHub, 0)
+
 	GUICtrlCreateTabItem("")
 
 	$hOptionsTab = GUICtrlCreateTabItem("选项")
 
-	$idFindACC = GUICtrlCreateCheckbox("始终搜索 ACC", 10, 50, 300, 25, BitOR($BS_AUTOCHECKBOX, $BS_LEFT))
+	$idFindACC = GUICtrlCreateCheckbox("始终扫描 ACC", 10, 50, 300, 25, BitOR($BS_AUTOCHECKBOX, $BS_LEFT))
 	If $bFindACC = 1 Then
 		GUICtrlSetState($idFindACC, $GUI_CHECKED)
 	Else
@@ -746,7 +753,7 @@ Func MainGui()
 	EndIf
 	GUICtrlSetResizing(-1, $GUI_DOCKAUTO)
 
-	$idOnlyAFolders = GUICtrlCreateCheckbox("仅在默认命名文件夹中搜索", 10, 130, 300, 25, BitOR($BS_AUTOCHECKBOX, $BS_LEFT))
+	$idOnlyAFolders = GUICtrlCreateCheckbox("仅在默认命名文件夹中扫描（Adobe）", 10, 130, 350, 25, BitOR($BS_AUTOCHECKBOX, $BS_LEFT))
 	If $bOnlyAFolders = 1 Then
 		GUICtrlSetState($idOnlyAFolders, $GUI_CHECKED)
 	Else
@@ -763,11 +770,17 @@ Func MainGui()
 	GUICtrlSetImage(-1, "imageres.dll", 5358, 0)
 	GUICtrlSetResizing(-1, $GUI_DOCKAUTO)
 
-	$g_idHyperlinkOptions = GUICtrlCreateLabel("gen.paramore.su", (595 - 160) / 2, 483, 160, 24, BitOR($SS_CENTER, $SS_NOTIFY))
+	$g_idHyperlinkOptions = GUICtrlCreateLabel("gen.paramore.su", 10, 483, 160, 24, BitOR($SS_LEFT, $SS_NOTIFY))
 	GUICtrlSetFont($g_idHyperlinkOptions, 9, 400, 0, "Segoe UI")
 	GUICtrlSetColor($g_idHyperlinkOptions, 0x000000)
 	GUICtrlSetBkColor($g_idHyperlinkOptions, $GUI_BKCOLOR_TRANSPARENT)
 	GUICtrlSetCursor($g_idHyperlinkOptions, 0)
+
+	$g_idHyperlinkGitHubOpt = GUICtrlCreateLabel("github.com/nljie1103/genp-cn", 595 - 260, 483, 260, 24, BitOR($SS_RIGHT, $SS_NOTIFY))
+	GUICtrlSetFont($g_idHyperlinkGitHubOpt, 9, 400, 0, "Segoe UI")
+	GUICtrlSetColor($g_idHyperlinkGitHubOpt, 0x000000)
+	GUICtrlSetBkColor($g_idHyperlinkGitHubOpt, $GUI_BKCOLOR_TRANSPARENT)
+	GUICtrlSetCursor($g_idHyperlinkGitHubOpt, 0)
 
 	GUICtrlCreateTabItem("")
 
@@ -807,11 +820,11 @@ Func MainGui()
 	GUICtrlSetResizing(-1, $GUI_DOCKAUTO)
 
 	; --- Hosts ---
-	$idBtnHostsInfo = GUICtrlCreateButton("?", 320, 188, 20, 20)
-	GUICtrlSetFont($idBtnHostsInfo, 10, 400, 0, "Arial")
-	GUICtrlSetResizing($idBtnHostsInfo, $GUI_DOCKAUTO)
 	$sEditHostsText = "HOSTS 域名"
 	$idLabelEditHosts = GUICtrlCreateLabel($sEditHostsText, 5, 190, 580, 20, $SS_CENTER)
+	$idBtnHostsInfo = GUICtrlCreateButton("?", 345, 188, 20, 20)
+	GUICtrlSetFont($idBtnHostsInfo, 10, 400, 0, "Arial")
+	GUICtrlSetResizing($idBtnHostsInfo, $GUI_DOCKAUTO)
 	GUICtrlSetFont($idLabelEditHosts, 10, 700)
 	GUICtrlSetResizing(-1, $GUI_DOCKAUTO)
 	$idBtnUpdateHosts = GUICtrlCreateButton("更新 hosts", 10, 215, 140, 30)
@@ -855,11 +868,18 @@ Func MainGui()
 	GUICtrlSetTip(-1, "添加/移除 DevOverrideEnable 注册表项")
 	GUICtrlSetResizing(-1, $GUI_DOCKAUTO)
 
-	$g_idHyperlinkPopup = GUICtrlCreateLabel("gen.paramore.su", (595 - 160) / 2, 483, 160, 24, BitOR($SS_CENTER, $SS_NOTIFY))
+	$g_idHyperlinkPopup = GUICtrlCreateLabel("gen.paramore.su", 10, 483, 160, 24, BitOR($SS_LEFT, $SS_NOTIFY))
 	GUICtrlSetFont($g_idHyperlinkPopup, 9, 400, 0, "Segoe UI")
 	GUICtrlSetColor($g_idHyperlinkPopup, 0x000000)
 	GUICtrlSetBkColor($g_idHyperlinkPopup, $GUI_BKCOLOR_TRANSPARENT)
 	GUICtrlSetCursor($g_idHyperlinkPopup, 0)
+
+	$g_idHyperlinkGitHubPop = GUICtrlCreateLabel("github.com/nljie1103/genp-cn", 595 - 260, 483, 260, 24, BitOR($SS_RIGHT, $SS_NOTIFY))
+	GUICtrlSetFont($g_idHyperlinkGitHubPop, 9, 400, 0, "Segoe UI")
+	GUICtrlSetColor($g_idHyperlinkGitHubPop, 0x000000)
+	GUICtrlSetColor($g_idHyperlinkGitHubPop, 0x000000)
+	GUICtrlSetBkColor($g_idHyperlinkGitHubPop, $GUI_BKCOLOR_TRANSPARENT)
+	GUICtrlSetCursor($g_idHyperlinkGitHubPop, 0)
 
 	GUICtrlCreateTabItem("")
 
@@ -870,22 +890,28 @@ Func MainGui()
 	$idLog = GUICtrlCreateEdit("", 10, 35, 575, 355, BitOR($WS_VSCROLL, $ES_AUTOVSCROLL, $ES_READONLY))
 	GUICtrlSetResizing(-1, $GUI_DOCKVCENTER)
 	GUICtrlSetState($idLog, $GUI_HIDE)
-	GUICtrlSetData($idLog, "Activity Log" & @CRLF & "- - - - - - - - - - -" & @CRLF & @CRLF & "GenP Version: " & $g_Version & "" & @CRLF & "Config Version: " & $ConfigVerVar & "" & @CRLF)
+	GUICtrlSetData($idLog, "活动日志" & @CRLF & "- - - - - - - - - - -" & @CRLF & @CRLF & "GenP 版本: " & $g_Version & "" & @CRLF & "配置版本: " & $ConfigVerVar & "" & @CRLF)
 
-	$idBtnCopyLog = GUICtrlCreateButton("Copy", 257, 430, 80, 30)
-	GUICtrlSetTip(-1, "Copy log to clipboard")
+	$idBtnCopyLog = GUICtrlCreateButton("复制", 257, 430, 80, 30)
+	GUICtrlSetTip(-1, "复制日志到剪贴板")
 	GUICtrlSetImage(-1, "imageres.dll", -77, 0)
 	GUICtrlSetResizing(-1, $GUI_DOCKAUTO)
 
-	$g_idHyperlinkLog = GUICtrlCreateLabel("gen.paramore.su", (595 - 160) / 2, 483, 160, 24, BitOR($SS_CENTER, $SS_NOTIFY))
+	$g_idHyperlinkLog = GUICtrlCreateLabel("gen.paramore.su", 10, 483, 160, 24, BitOR($SS_LEFT, $SS_NOTIFY))
 	GUICtrlSetFont($g_idHyperlinkLog, 9, 400, 0, "Segoe UI")
 	GUICtrlSetColor($g_idHyperlinkLog, 0x000000)
 	GUICtrlSetBkColor($g_idHyperlinkLog, $GUI_BKCOLOR_TRANSPARENT)
 	GUICtrlSetCursor($g_idHyperlinkLog, 0)
 
+	$g_idHyperlinkGitHubLog = GUICtrlCreateLabel("github.com/nljie1103/genp-cn", 595 - 260, 483, 260, 24, BitOR($SS_RIGHT, $SS_NOTIFY))
+	GUICtrlSetFont($g_idHyperlinkGitHubLog, 9, 400, 0, "Segoe UI")
+	GUICtrlSetColor($g_idHyperlinkGitHubLog, 0x000000)
+	GUICtrlSetBkColor($g_idHyperlinkGitHubLog, $GUI_BKCOLOR_TRANSPARENT)
+	GUICtrlSetCursor($g_idHyperlinkGitHubLog, 0)
+
 	GUICtrlCreateTabItem("")
 
-	MemoWrite(@CRLF & "Path" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "Waiting for user action.")
+	MemoWrite(@CRLF & "路径" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "等待用户操作")
 
 	GUICtrlSetState($idButtonSearch, 256) ; Set focus
 	GUISetState(@SW_SHOW)
@@ -979,10 +1005,10 @@ Func FillListViewWithInfo()
 
 	_GUICtrlListView_AddSubItem($idListview, 0, "", 1)
 	_GUICtrlListView_AddSubItem($idListview, 1, "GenP", 1)
-	_GUICtrlListView_AddSubItem($idListview, 2, "Originally created by uncia", 1)
+	_GUICtrlListView_AddSubItem($idListview, 2, "原作者: uncia | 汉化: Jay Leon", 1)
 	_GUICtrlListView_AddSubItem($idListview, 3, '---------------', 1)
-	_GUICtrlListView_AddSubItem($idListview, 4, "Press 'Search' to find installed products; 'Patch' to patch selected products/files", 1)
-	_GUICtrlListView_AddSubItem($idListview, 5, "Current search path: " & $MyDefPath & " -- press 'Path' to change", 1)
+	_GUICtrlListView_AddSubItem($idListview, 4, "点击「扫描」查找已安装的产品，点击「打补丁」对选中的产品/文件进行补丁", 1)
+	_GUICtrlListView_AddSubItem($idListview, 5, "当前扫描路径: " & $MyDefPath & " —— 点击「路径」更改", 1)
 
 	$fFilesListed = 0
 
@@ -1002,12 +1028,12 @@ Func FillListViewWithFiles()
 		Next
 		_GUICtrlListView_AddArray($idListview, $aItems)
 
-		MemoWrite(@CRLF & UBound($FilesToPatch) & " File(s) were found in " & Round(TimerDiff($timestamp) / 1000, 0) & " second(s) at:" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "Press the 'Patch Files'")
-		LogWrite(1, UBound($FilesToPatch) & " File(s) were found in " & Round(TimerDiff($timestamp) / 1000, 0) & " 秒" & @CRLF)
+		MemoWrite(@CRLF & UBound($FilesToPatch) & " 个文件在 " & Round(TimerDiff($timestamp) / 1000, 0) & " 秒内找到，位于:" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "请点击『打补丁』")
+		LogWrite(1, UBound($FilesToPatch) & " 个文件在 " & Round(TimerDiff($timestamp) / 1000, 0) & " 秒内找到" & @CRLF)
 		;_ArrayDisplay($FilesToPatch)
 		$fFilesListed = 1
 	Else
-		MemoWrite(@CRLF & "Nothing was found in" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "waiting for user action")
+		MemoWrite(@CRLF & "在以下路径中未找到任何文件" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "等待用户操作")
 		LogWrite(1, "在以下路径中未找到任何文件: " & $MyDefPath)
 		$fFilesListed = 0
 	EndIf
@@ -1062,7 +1088,7 @@ EndFunc   ;==>ProgressWrite
 
 Func MyFileOpenDialog()
 	; Create a constant variable in Local scope of the message to display in FileOpenDialog.
-	Local Const $sMessage = "Select a Path"
+	Local Const $sMessage = "选择路径"
 
 	; Display an open dialog to select a file.
 	Local $MyTempPath = FileSelectFolder($sMessage, $MyDefPath, 0, $MyDefPath, $MyhGUI)
@@ -1071,7 +1097,7 @@ Func MyFileOpenDialog()
 	If @error Then
 		; Display the error message.
 		;MsgBox($MB_SYSTEMMODAL, "", "No folder was selected.")
-		MemoWrite(@CRLF & "Path" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "waiting for user action")
+		MemoWrite(@CRLF & "路径" & @CRLF & "---" & @CRLF & $MyDefPath & @CRLF & "---" & @CRLF & "等待用户操作")
 
 	Else
 		GUICtrlSetState($idBtnCure, 128)
@@ -1644,6 +1670,13 @@ Func hL_WM_COMMAND($hWnd, $iMsg, $wParam, $lParam)
 			Local $sUrl = Deloader($g_aSignature)
 			If TimerDiff($g_iHyperlinkClickTime) > 500 Then
 				ShellExecute($sUrl)
+				$g_iHyperlinkClickTime = TimerInit()
+			EndIf
+			Return $GUI_RUNDEFMSG
+		EndIf
+		If $iIDFrom = $g_idHyperlinkGitHub Or $iIDFrom = $g_idHyperlinkGitHubOpt Or $iIDFrom = $g_idHyperlinkGitHubPop Or $iIDFrom = $g_idHyperlinkGitHubLog Then
+			If TimerDiff($g_iHyperlinkClickTime) > 500 Then
+				ShellExecute("https://github.com/nljie1103/genp-cn")
 				$g_iHyperlinkClickTime = TimerInit()
 			EndIf
 			Return $GUI_RUNDEFMSG

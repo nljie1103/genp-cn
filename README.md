@@ -283,10 +283,11 @@ MyGlobalPatternPatch() → 备份原文件(.bak)
 | 原版英文 | 中文翻译 | 位置 |
 |----------|----------|------|
 | Path | 路径 | 主页按钮 |
-| Search | 搜索 | 主页按钮 |
+| Search | 扫描 | 主页按钮 |
 | Stop | 停止 | 主页按钮 |
 | Patch | 补丁 | 主页按钮 |
 | Restore | 恢复 | 主页按钮 |
+| Copy | 复制 | 日志页按钮 |
 | Main | 主页 | Tab标签 |
 | Options | 选项 | Tab标签 |
 | Pop-up Tools | 弹窗工具 | Tab标签 |
