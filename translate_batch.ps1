@@ -1,4 +1,4 @@
-$file = Join-Path $PSScriptRoot "GenP\GenP-3.8.0.au3"
+﻿$file = Join-Path $PSScriptRoot "GenP\GenP-3.8.0.au3"
 $c = [System.IO.File]::ReadAllText($file, [System.Text.Encoding]::UTF8)
 $origLen = $c.Length
 Write-Host "Loaded: $origLen chars"

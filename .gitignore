@@ -1,10 +1,29 @@
-# 备份文件
-*.bak
-# 日志
-Logs/
-# 编译输出
+# ===== 构建输出 =====
 Release/
-# 编译中间文件
+Logs/
+
+# ===== 编译中间文件 =====
 GenP/*_stripped.au3
 GenP/*.exe
+
+# ===== 构建时生成的运行时文件 =====
+GenP/upx.exe
+
+# ===== 备份/临时文件 =====
+*.bak
+*.garbled_bak
+*.ui_bak
+
+# ===== 构建工具下载缓存 =====
+autoit-v3.zip
+SciTE4AutoIt3_Portable.zip
+
+# ===== 编辑器/IDE =====
+.vscode/
+*.code-workspace
+
+# ===== 系统文件 =====
+Thumbs.db
+Desktop.ini
+.DS_Store
 

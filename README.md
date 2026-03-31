@@ -25,36 +25,111 @@
 
 ```
 genp-3.8.0-src/
-├── README.md                    ← 本文件（项目说明）
-├── ARCHITECTURE.md              ← 详细架构与教程文档
-├── build_info.txt               ← 构建说明（已中文化）
+│
+│  ===== Git / GitHub 配置 =====
+├── .git/                        ← Git 版本控制目录（自动管理，无需修改）
+├── .gitignore                   ← Git 忽略规则（排除 *.bak、Logs/、Release/ 等）
+├── LICENSE                      ← MIT 开源许可证
+├── README.md                    ← 本文件（项目总览与学习指南）
+├── ARCHITECTURE.md              ← 详细架构说明、安全分析与学习教程
+│
+│  ===== 构建系统 =====
+├── build_info.txt               ← 构建说明（简要提示如何编译）
 ├── build.ps1                    ← PowerShell 自动化构建脚本（已中文注释）
-├── run_build.bat                ← 一键构建启动器（已中文化）
+│                                   负责下载 AutoIt/SciTE、解压 UPX、补丁 DLL、编译
+├── run_build.bat                ← 一键构建启动器（管理员权限检查 + chcp 65001）
+│
+│  ===== 翻译工具 =====
+├── translate_batch.ps1          ← 批量翻译脚本（90 条英→中替换规则）
+│
+│  ===== 主程序源码 =====
 ├── GenP/
-│   ├── GenP-3.8.0.au3           ← ⭐ 主程序源码（已全面中文化+注释）
-│   ├── GenP-3.8.0.au3.bak       ← 原版英文备份
-│   ├── config.ini               ← 补丁配置文件（已中文注释）
-│   └── Skull.ico                ← 程序图标
+│   ├── GenP-3.8.0.au3           ← ⭐ AutoIt 主程序源码（已全面中文化+注释）
+│   │                               GUI 界面、文件搜索、特征码匹配、二进制补丁引擎
+│   ├── config.ini               ← 补丁配置文件（目标文件列表 + 十六进制特征码定义）
+│   ├── Skull.ico                ← 程序图标资源（编译时嵌入 exe）
+│   └── wintrust.dll             ← 已补丁的 wintrust.dll（构建时由 patch_wintrust.ps1 生成）
+│
+│  ===== UPX 压缩工具 =====
 ├── UPX/
-│   └── upx-5.0.1-win64.zip     ← UPX 压缩工具包
+│   ├── upx-5.0.1-win64.zip     ← UPX 压缩工具包（源码包，构建时自动解压）
+│   └── upx-5.0.1-win64/        ← 解压后的 UPX 目录
+│       ├── upx.exe              ← UPX 可执行文件（用于解包 RuntimeInstaller.dll）
+│       ├── COPYING              ← UPX 许可证（GNU GPL v2）
+│       ├── LICENSE              ← UPX 许可声明
+│       ├── NEWS                 ← UPX 更新日志
+│       ├── README               ← UPX 说明文件
+│       ├── THANKS.txt           ← UPX 致谢
+│       ├── upx.1                ← UPX man 手册页
+│       ├── upx-doc.html         ← UPX HTML 文档
+│       └── upx-doc.txt          ← UPX 文本文档
+│
+│  ===== WinTrust 补丁 =====
 ├── WinTrust/
-│   ├── patch_wintrust.ps1       ← WinTrust 补丁脚本（已中文注释）
-│   └── wintrust.dll             ← 原版 wintrust.dll
+│   ├── patch_wintrust.ps1       ← WinTrust DLL 补丁脚本（已中文注释）
+│   │                               修改签名验证函数返回值（偏移 0x1C86-0x1C87）
+│   └── wintrust.dll             ← 原版 wintrust.dll（补丁前的原始文件）
+│
+│  ===== 构建输出 =====
+├── Release/
+│   └── GenP-v3.8.0.exe          ← 编译输出的可执行文件（被 .gitignore 忽略）
+│
+├── Logs/                        ← 构建日志目录（被 .gitignore 忽略）
+│   ├── build.log                ← PowerShell Transcript 构建日志
+│   ├── AutoIt_out.log           ← AutoIt 编译器标准输出
+│   └── AutoIt_err.log           ← AutoIt 编译器错误输出
+│
+│  ===== 原版参考 =====
 └── 原版/
-    ├── GenP-v3.8.0.exe          ← 已编译的原版可执行文件
-    └── CGP.nfo                  ← 原版 NFO 信息文件
-    └── source                  ← 原版 SOURCE 信息文件
+    ├── CGP.nfo                  ← 原版 NFO 信息文件（发布说明）
+    ├── GenP-v3.8.0.exe          ← 原版已编译可执行文件（用于对比）
+    └── source/                  ← 原版完整英文源码（只读参考）
+        ├── build.ps1            ← 原版构建脚本
+        ├── build_info.txt       ← 原版构建说明
+        ├── run_build.bat        ← 原版构建启动器
+        ├── GenP/
+        │   ├── GenP-3.8.0.au3   ← 原版英文 AutoIt 源码（3599 行）
+        │   ├── config.ini       ← 原版配置文件
+        │   └── Skull.ico        ← 原版图标
+        ├── UPX/
+        │   └── upx-5.0.1-win64.zip  ← 原版 UPX 包
+        └── WinTrust/
+            ├── patch_wintrust.ps1    ← 原版补丁脚本
+            └── wintrust.dll          ← 原版 wintrust.dll
 ```
+
+### 文件说明速查
+
+| 文件 | 类型 | 说明 |
+|------|------|------|
+| `.gitignore` | Git 配置 | 排除 `*.bak`、`Logs/`、`Release/`、编译中间文件 |
+| `LICENSE` | 法律文件 | MIT 开源许可证 |
+| `README.md` | 文档 | 项目总览、结构说明、学习指南 |
+| `ARCHITECTURE.md` | 文档 | 架构详解、代码流程、模块说明、安全分析 |
+| `build_info.txt` | 文档 | 简要构建提示 |
+| `build.ps1` | 构建脚本 | 全自动构建流程（下载→解压→补丁→编译→输出） |
+| `run_build.bat` | 构建入口 | 管理员权限检查 + 设置 UTF-8 + 调用 build.ps1 |
+| `translate_batch.ps1` | 翻译工具 | 90 条英→中字符串替换规则，支持增量翻译 |
+| `GenP-3.8.0.au3` | 主程序 | AutoIt 源码，约 3600 行，60+ 函数 |
+| `config.ini` | 配置 | INI 格式，定义补丁的目标文件和十六进制特征码 |
+| `Skull.ico` | 资源 | 程序图标（208KB，编译时由 AutoIt3Wrapper 嵌入） |
+| `wintrust.dll`（GenP/） | 运行时 | 已补丁的 DLL，程序运行时使用 |
+| `wintrust.dll`（WinTrust/） | 源文件 | 补丁前原版 DLL，由 patch_wintrust.ps1 读取 |
+| `patch_wintrust.ps1` | 补丁脚本 | 二进制补丁：修改签名验证函数返回值 |
+| `upx-5.0.1-win64.zip` | 工具包 | UPX 压缩/解压工具（构建时解压使用） |
 
 ## 🛠️ 技术栈
 
 | 组件 | 语言/技术 | 用途 |
 |------|-----------|------|
-| `GenP-3.8.0.au3` | **AutoIt v3** | 主程序（GUI、文件搜索、十六进制补丁引擎） |
-| `build.ps1` | **PowerShell** | 自动化构建（下载依赖、编译、打包） |
-| `run_build.bat` | **Batch** | 以管理员权限启动构建 |
-| `patch_wintrust.ps1` | **PowerShell** | 二进制 DLL 字节补丁 |
+| `GenP-3.8.0.au3` | **AutoIt v3** | 主程序（GUI 界面、文件搜索、十六进制补丁引擎） |
 | `config.ini` | **INI** | 目标文件列表、十六进制特征码定义 |
+| `build.ps1` | **PowerShell** | 自动化构建（下载依赖、编译、打包） |
+| `run_build.bat` | **Batch** | 以管理员权限启动构建 + 设置 UTF-8 控制台 |
+| `patch_wintrust.ps1` | **PowerShell** | 二进制 DLL 字节补丁 |
+| `translate_batch.ps1` | **PowerShell** | 批量文本替换翻译（90 条规则） |
+| `.gitignore` | **Git** | 版本控制忽略规则 |
+| `LICENSE` | **文本** | MIT 开源许可证 |
 
 ## 🚀 快速开始
 
